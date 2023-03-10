@@ -8,6 +8,12 @@ const port = 3000;
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+
+//=========route===========
+const blogRoute=require("./route/blogRoute")
+
+//=========route===========
 
 // connect to database 
 mongoose.connect("mongodb://localhost:27017/hubApi").then(()=>{
@@ -22,3 +28,4 @@ console.log(error);
 )
 
 
+app.use("/api/v1/blog",blogRoute);
