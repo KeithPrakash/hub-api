@@ -1,11 +1,14 @@
 const BlogSchema =require('../model/blogs');
 
 
-const saveBlog=(res,req)=>{
+const saveBlog=(req,res)=>{
+    
 const blog =BlogSchema({
+
     title:req.body.title,
     link:req.body.link,
-    date:req.body.date
+    date:req.body.date,
+    comments:req.body.comments
 
 })
 blog.save().then(result=>{
